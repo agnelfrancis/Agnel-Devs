@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agnel Devs - Game Developing Platform</title>
+    <link rel="icon" href="./images/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            font-family: 'Space Mono', monospace;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            padding: 20px 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            text-align: center;
+            transition: top 0.3s;
+        }
+
+        header.sticky {
+            top: 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 72px;
+            font-weight: bold;
+            color: #fff;
+            transition: font-size 0.3s;
+        }
+
+        header h1 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ddd;
+        }
+
+        section {
+            padding: 100px 0;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .games-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .game {
+            margin: 20px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s;
+        }
+
+        .game img {
+            max-width: 300px;
+        }
+
+        .game-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            width: 100%;
+            height: 0;
+            transition: height 0.5s;
+        }
+
+        .game:hover {
+            transform: scale(1.1);
+        }
+
+        .game:hover .game-overlay {
+            height: 100%;
+        }
+
+        .game h3 {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 999;
+        }
+
+        .popup-content {
+            text-align: center;
+        }
+
+        .close {
+            color: #fff;
+            float: right;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: red;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-form button {
+            background-color: #fff;
+            color: #000;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#details">Details</a></li>
+                    <li><a href="#games">Games</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about">About Us</a></li>
+                </ul>
+            </nav>
+            <h1><a href="#top" class="animate__animated animate__fadeInDown">Agnel Devs</a></h1>
+        </div>
+    </header>
+
+    <section id="details" class="details-section">
+        <div class="container">
+            <h2 class="section-title">About Agnel Devs</h2>
+            <p>Agnel Devs is a game development platform dedicated to creating innovative and immersive gaming experiences. We specialize in developing high-quality games for various platforms, including mobile, PC, and consoles. Our team of experienced developers and designers works tirelessly to bring unique concepts to life, ensuring that each game delivers an exceptional gaming experience to our players. At Agnel Devs, we believe in pushing the boundaries of creativity and technology to create games that captivate and inspire audiences worldwide.</p>
+        </div>
+    </section>
+
+    <section id="games" class="games-section">
+        <div class="container">
+            <h2 class="section-title">Games</h2>
+            <div class="games-container">
+                <div class="game" onclick="window.location.href='./games/catchbox.html'">
+                    <img src="./images/catchbox.png" alt="CatchBox: Skyfall Challenge">
+                    <div class="game-overlay">
+                        <h3>CatchBox: Skyfall Challenge</h3>
+                    </div>
+                </div>
+                <div class="game" onclick="window.location.href='./games/lostintime.html'">
+                    <img src="./images/lostintime.png" alt="Lost In Time">
+                    <div class="game-overlay">
+                        <h3>Lost In Time</h3>
+                    </div>
+                </div>
+                <!-- Add more games -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <p>Feel free to reach out to us for any inquiries or collaboration opportunities. You can contact us via email, phone, or through the contact form below.</p>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+                <textarea placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <p>Agnel Devs is a passionate team of game developers, designers, and enthusiasts dedicated to creating unforgettable gaming experiences. With years of experience and a shared love for gaming, we strive to push the boundaries of creativity and innovation in the gaming industry. Our mission is to deliver exceptional games that entertain, inspire, and challenge players worldwide. We are committed to fostering a culture of creativity, collaboration, and continuous learning to ensure that we stay at the forefront of game development. Join us on our journey as we continue to create immersive worlds, unforgettable characters, and thrilling gameplay experiences that leave a lasting impact on players.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Agnel Devs. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="game-popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2 id="popup-title"></h2>
+            <p id="popup-description"></p>
+        </div>
+    </div>
+
+    <script>
+        function showPopup(title, description) {
+            document.getElementById('popup-title').innerText = title;
+            document.getElementById('popup-description').innerText = description;
+            document.getElementById('game-popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('game-popup').style.display = 'none';
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Sticky Navbar
+        window.onscroll = function() {stickyNavbar()};
+        var navbar = document.getElementsByTagName('header')[0];
+        var sticky = navbar.offsetTop;
+
+        function stickyNavbar() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky");
+                document.querySelector('header h1').style.fontSize = "36px";
+            } else {
+                navbar.classList.remove("sticky");
+                document.querySelector('header h1').style.fontSize = "72px";
+            }
+        }
+    </script>
+
+</body>
+</html>
